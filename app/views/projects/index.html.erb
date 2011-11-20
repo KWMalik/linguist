@@ -1,0 +1,25 @@
+<h2>Projects</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Languages Supported</th>
+    <th>Bundles</th>
+	<th colspan="1">Actions</th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= link_to project.name, edit_project_path(project) %></td>
+    <td><%= project.languages.count %></td>
+    <td><%= project.bundles.count %></td>
+	<td>
+		<%= link_to "Manage Bundles", project_bundles_path(project.id)%>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Project', new_project_path %>

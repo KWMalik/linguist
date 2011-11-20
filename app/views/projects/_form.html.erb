@@ -1,0 +1,29 @@
+<%= form_for(@project) do |f| %>
+	<% if @project.errors.any? %>
+	  <div id="error_explanation">
+	    <h2><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h2>
+
+	    <ul>
+	    <% @project.errors.full_messages.each do |msg| %>
+	      <li><%= msg %></li>
+	    <% end %>
+	    </ul>
+	  </div>
+	<% end %>
+
+	<div class="field">
+	  <%= f.label :name %><br />
+	  <%= f.text_field :name %>
+	</div>
+
+	<% for language in Language.all %>
+		<div>
+			<%= check_box_tag "project[language_ids][]", language.id, @project.languages.include?(language) %>
+			<%= language.name %>
+		</div>
+	<% end %>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+<% end %>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Linguistic</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="container clearfix">
+	<div class="grid_12 ui-widget-header">
+		<h1 id="The Linguist">The Linguist</h1>
+	</div>
+	<div class="grid_12">
+		<%= yield %>	
+	</div>
+</div>
+
+
+</body>
+</html>

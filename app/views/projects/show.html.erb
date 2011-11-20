@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Supported Languages:</b>
+  <%= (@project.languages.map { |l| l.name }).join(", ") %>
+</p>
+
+<p>
+  <b>Bundles:</b>
+
+  <% if @project.bundles.count > 0 then %>
+	<ol>
+  		<% @project.bundles.each do |bundle| %>
+			<li>
+	 			<%= h bundle.name %>
+	 			<%= link_to "Translate", edit_bundle_path(bundle) %>
+			</li>
+   		<% end %>
+	</ol>
+   <% else %>
+ 		<%= h "No bundles" %>
+   <% end %>
+</p>
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>

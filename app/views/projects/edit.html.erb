@@ -1,0 +1,16 @@
+
+<h1>Project Details</h1>
+
+<%= render 'form' %>
+
+<div class="container clearfix">
+	<div class="grid_11">
+		<%= link_to 'Show', @project %> |
+		<%= link_to 'Back', projects_path %>
+	</div>
+	<div class="grid_1" style="">
+		<%= link_to 'Destroy', @project, confirm: 'Are you sure?', method: :delete %>
+	</div>
+</div>
+
+
